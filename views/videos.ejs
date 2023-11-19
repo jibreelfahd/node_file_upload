@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/style.css">
+   <title>Images</title>
+</head>
+<body>
+   <div class="container">
+      <h1>All Video Files</h1>
+      <% if (video.length > 0) { %>
+         <% video.forEach(result => { %>
+            <% if (result.isVideo) {%>
+               <video width="300" height="300" controls>
+                  <source src="uploads/<%= result.filename %>" type="video/mp4">
+               </video>
+               <p><%= result.originalname %></p>
+            <% } %>
+         <% }) %>
+      <% } else { %>
+            <p><%= message %></p>
+      <% } %>
+   </div>
+</body>
+</html>

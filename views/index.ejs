@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/style.css"> 
+   <title>Upload files</title>
+</head>
+<body>
+   <div class="container">
+      <h1>Mongo File Uploads</h1>
+      <form id='form' action="/upload" method="POST" enctype="multipart/form-data">
+          <div class="input-group">
+              <label for='files'>Select files</label>
+              <input id='files' name="files" type="file">
+          </div>
+          <button class="submit-btn" type='submit'>Upload File</button>
+      </form>
+
+      <% if(allFiles.length > 0) {%>
+         <% allFiles.forEach(files => { %>
+            <% if(files.isImage) { %>
+               <img src="uploads/<%= files.filename %>" alt="">
+               <p><%= files.originalname %></p>
+            <% } %>   
+            <% if(files.isAudio) { %>
+               <audio controls>
+                  <source src="uploads/<%= files.filename %>" files="audio/mpeg">
+               </audio>
+               <p><%= files.originalname %></p>
+            <% } %>   
+            <% if(files.isVideo) { %>
+               <video width="300" height="300" controls>
+                  <source src="uploads/<%= files.filename %>" type="video/mp4">
+               </video>
+               <p><%= files.originalname %></p>
+            <% } %>   
+         <% }) %>
+      <% } else { %>
+         <p><%= message %></p>
+      <% } %>
+  </div>
+
+  <!-- <img src="image.png" alt=""> -->
+</body>
+</html>

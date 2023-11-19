@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/style.css">
+   <title>Images</title>
+</head>
+<body>
+   <div class="container">
+      <h1>All Audio Files</h1>
+      <% if (audio.length > 0) { %>
+         <% audio.forEach(result => { %>
+            <% if (result.isAudio) {%>
+               <audio controls>
+                  <source src="uploads/<%= result.filename %>" files="audio/mpeg">
+               </audio>
+               <p><%= result.originalname %></p>
+            <% } %>
+         <% }) %>
+      <% } else { %>
+            <p><%= message %></p>
+      <% } %>
+   </div>
+</body>
+</html>
