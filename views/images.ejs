@@ -11,10 +11,8 @@
       <h1>All Image Files</h1>
       <% if (images.length > 0) { %>
          <% images.forEach(result => { %>
-            <% if (result.isImage) {%>
                <img src="uploads/<%= result.filename %>" alt="">
                <p><%= result.originalname %></p>
-            <% } %>
          <% }) %>
       <% } else { %>
             <p><%= message %></p>

@@ -11,12 +11,10 @@
       <h1>All Audio Files</h1>
       <% if (audio.length > 0) { %>
          <% audio.forEach(result => { %>
-            <% if (result.isAudio) {%>
                <audio controls>
                   <source src="uploads/<%= result.filename %>" files="audio/mpeg">
                </audio>
                <p><%= result.originalname %></p>
-            <% } %>
          <% }) %>
       <% } else { %>
             <p><%= message %></p>

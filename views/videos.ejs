@@ -11,12 +11,10 @@
       <h1>All Video Files</h1>
       <% if (video.length > 0) { %>
          <% video.forEach(result => { %>
-            <% if (result.isVideo) {%>
                <video width="300" height="300" controls>
                   <source src="uploads/<%= result.filename %>" type="video/mp4">
                </video>
                <p><%= result.originalname %></p>
-            <% } %>
          <% }) %>
       <% } else { %>
             <p><%= message %></p>
